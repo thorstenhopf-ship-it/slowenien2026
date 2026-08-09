@@ -81,9 +81,17 @@
     .wechsel a{flex:1;text-align:center;padding:11px 8px;font-size:13px}
   }
 
-  /* Klebende Kopfleiste: Filter + Versionsschild bleiben beim Scrollen sichtbar. */
-  .filterleiste{position:sticky;top:0;z-index:5;background:var(--paper);
-    margin:26px 0 8px;padding:10px 0 12px;display:flex;align-items:center;gap:10px;
+  /* Feste Kopfleiste ganz oben: Titel links, Version rechts. Bleibt immer
+     stehen. Die Filterleiste klebt direkt darunter (top = Hoehe der Kopfleiste). */
+  :root{--kopf:46px}
+  .kopfleiste{position:sticky;top:0;z-index:7;background:var(--paper);
+    height:var(--kopf);display:flex;align-items:center;justify-content:space-between;
+    gap:12px;border-bottom:2px solid var(--ink);margin:0 0 0}
+  .kopftitel{font-family:var(--serif);font-weight:700;font-size:17px;
+    letter-spacing:-.01em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .kopfleiste .ver{flex:none;margin:0}
+  .filterleiste{position:sticky;top:var(--kopf);z-index:5;background:var(--paper);
+    margin:0 0 8px;padding:10px 0 12px;display:flex;align-items:center;gap:10px;
     border-bottom:1px solid var(--line)}
   .filter{display:flex;flex-wrap:wrap;gap:9px;flex:1;min-width:0}
   .filterleiste .ver{flex:none;margin:0}
@@ -186,6 +194,8 @@
     .fuss a{font-size:13px}
     .fuss a.navi{padding:7px 14px;font-size:13px}
     /* Filterleiste waagerecht wischbar statt umbrechend */
+    :root{--kopf:42px}
+    .kopftitel{font-size:15.5px}
     .filterleiste{gap:8px;padding:8px 0 10px}
     .filter{gap:7px;flex-wrap:nowrap;overflow-x:auto;padding:2px 0;
       -webkit-overflow-scrolling:touch;scrollbar-width:none}
@@ -218,6 +228,10 @@
 </head>
 <body>
 <div class="wrap">
+  <div class="kopfleiste">
+    <span class="kopftitel">Slowenien 2026</span>
+    <span class="ver">v1.8</span>
+  </div>
   <header class="top">
     <span class="eyebrow">Julische Alpen · Triglav-Nationalpark</span>
     <h1>Mojstrana<span class="klein">Was wir machen könnten — Ideen für unsere Woche</span></h1>
@@ -230,7 +244,6 @@
   <div class="filterleiste">
     <div class="filter" id="filter"><button data-f="alle" class=an>🗺️ Alles zeigen</button><button data-f="kleinkind">🧸 Auch für Kleinkinder</button><button data-f="kinder">🧒 Für die Kinder</button><button data-f="baden">🏊 Baden</button><button data-f="action">⚡ Action</button><button data-f="wandern">🥾 Wandern & Einkehr</button><button data-f="essen">🍽️ Restaurants</button><button data-f="regen">🌧️ Bei Regen</button><button data-f="nah">📍 Gleich um die Ecke</button><button data-f="tag">🚗 Tagesausflug</button></div>
     <span class="zaehler" id="zaehler"></span>
-    <span class="ver">v1.7</span>
   </div>
 
   <div class="grid" id="grid">
@@ -938,8 +951,8 @@
     jederzeit über <b>📍 Karte</b>.
   </div>
 
-  <div class="neu"><b>Was ist neu</b><ul><li><b>v1.7</b> Action-Filter · mehrere Filter gleichzeitig · Filterleiste bleibt beim Scrollen sichtbar</li><li><b>v1.6</b> Soča-Tal: Rafting ab 5 Jahren, Zipline Učja, Boka-Wasserfall</li><li><b>v1.5</b> Familien-Canyoning bei Bled (mit Mindestgrößen)</li><li><b>v1.4</b> iPhone: Bilder nicht mehr gequetscht, Texte größer und lesbar</li><li><b>v1.3</b> Abenteuerpark Bled und Zipline Bohinj · mehr Fotos bei den Wanderungen</li><li><b>v1.2</b> Wanderungen mit Länge, Höhenmetern und Gehzeit</li><li><b>v1.1</b> Restaurants mit Google-Bewertung · Wanderungen mit Schwierigkeitsstufe (leicht bis anspruchsvoll)</li><li><b>v1.0</b> Erste Fassung: Ausflugsziele mit Filtern, Fotos, Gehzeiten und Karte-Knopf</li></ul></div>
-  <div class="version"><span>Stand 09.08.2026 13:41</span><span>36 Ziele</span></div>
+  <div class="neu"><b>Was ist neu</b><ul><li><b>v1.8</b> Feste Kopfzeile mit Titel und Version</li><li><b>v1.7</b> Action-Filter · mehrere Filter gleichzeitig · Filterleiste bleibt beim Scrollen sichtbar</li><li><b>v1.6</b> Soča-Tal: Rafting ab 5 Jahren, Zipline Učja, Boka-Wasserfall</li><li><b>v1.5</b> Familien-Canyoning bei Bled (mit Mindestgrößen)</li><li><b>v1.4</b> iPhone: Bilder nicht mehr gequetscht, Texte größer und lesbar</li><li><b>v1.3</b> Abenteuerpark Bled und Zipline Bohinj · mehr Fotos bei den Wanderungen</li><li><b>v1.2</b> Wanderungen mit Länge, Höhenmetern und Gehzeit</li><li><b>v1.1</b> Restaurants mit Google-Bewertung · Wanderungen mit Schwierigkeitsstufe (leicht bis anspruchsvoll)</li><li><b>v1.0</b> Erste Fassung: Ausflugsziele mit Filtern, Fotos, Gehzeiten und Karte-Knopf</li></ul></div>
+  <div class="version"><span>Stand 09.08.2026 13:51</span><span>36 Ziele</span></div>
 </div>
 <script>
 const grid=document.getElementById('grid');
