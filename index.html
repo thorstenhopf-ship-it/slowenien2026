@@ -152,37 +152,37 @@
      Am Telefon entscheidet man unterwegs "was machen wir heute?" -- da zaehlt
      Ueberblick, nicht Bildgroesse. Bild links, Text rechts: 4-5 Ziele pro
      Bildschirm statt einem. */
+  /* ================= iPhone =================
+     Frueher standen hier Zeilen-Karten mit 104 px Bildspalte. Das ging schief,
+     sobald Stufe, Sterne und Tourdaten dazukamen: Das querformatige Foto wurde
+     in einen 104x247-Rahmen gepresst (also auf einen senkrechten Streifen
+     beschnitten), und der Text musste auf 11 px in eine 241 px schmale Spalte.
+     Jetzt wieder Bild oben ueber die volle Breite -- nur flacher als auf dem
+     iPad (2:1 statt 3:2), damit die Karten trotzdem kompakt bleiben. */
   @media (max-width:600px){
     .wrap{padding:24px 14px 70px}
-    .grid{grid-template-columns:1fr;gap:11px}
-    .karte{flex-direction:row;border-radius:15px}
+    .grid{grid-template-columns:1fr;gap:13px}
     .karte:hover{transform:none}
-    .bild{aspect-ratio:auto;width:104px;flex:none;align-self:stretch;min-height:100%}
-    .bild img{height:100%}
-    .bild .ph{font-size:34px}
-    .bild .em{display:none}
-    .inhalt{padding:10px 12px 9px;gap:4px}
-    .kopf h3{font-size:16px;margin-bottom:2px;line-height:1.15}
-    .meta{gap:2px 8px;font-size:11px;line-height:1.3}
-    /* Text und Hinweis auf zwei Zeilen kuerzen -- zum Vorsortieren reicht das,
-       alles Weitere steht auf der verlinkten Website. */
-    .text{font-size:12.5px;line-height:1.38;
+    .bild{aspect-ratio:2/1}
+    .inhalt{padding:22px 15px 12px;gap:6px}
+    .kopf h3{font-size:18px;margin-bottom:4px}
+    .meta{gap:5px 10px;font-size:12px}
+    .tour{font-size:12.5px}
+    .text{font-size:14px;line-height:1.45;
       display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
-    .info{font-size:11px;padding:4px 8px;line-height:1.35;
-      display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
-    /* Die Merkmal-Plaketten sind am Telefon doppelt gemoppelt -- dieselbe
-       Information liefert die Filterleiste darueber. Weg damit, dann bleibt
-       die Fusszeile einzeilig statt umzubrechen. */
+    .info{font-size:12.5px;padding:7px 11px;line-height:1.42}
+    /* Plaketten bleiben aus: dieselbe Information liefert die Filterleiste,
+       und so bleibt die Fusszeile einzeilig. */
     .chips{display:none}
-    .fuss{padding-top:7px;gap:7px;flex-wrap:nowrap}
+    .fuss{padding-top:9px;gap:8px;flex-wrap:nowrap}
     .knoepfe{width:100%;justify-content:flex-end}
-    .fuss a{font-size:12px}
-    .fuss a.navi{padding:5px 12px;font-size:12px}
+    .fuss a{font-size:13px}
+    .fuss a.navi{padding:7px 14px;font-size:13px}
     /* Filterleiste waagerecht wischbar statt umbrechend */
     .filter{gap:7px;flex-wrap:nowrap;overflow-x:auto;padding:10px 0 12px;
       -webkit-overflow-scrolling:touch;scrollbar-width:none}
     .filter::-webkit-scrollbar{display:none}
-    .filter button{flex:none;font-size:13px;padding:8px 14px}
+    .filter button{flex:none;font-size:13.5px;padding:9px 15px}
     .zaehler{display:none}
   }
 
@@ -211,7 +211,7 @@
 <body>
 <div class="wrap">
   <header class="top">
-    <span class="verobenrechts">v1.3</span>
+    <span class="verobenrechts">v1.5</span>
     <span class="eyebrow">Julische Alpen · Triglav-Nationalpark</span>
     <h1>Mojstrana<span class="klein">Was wir machen könnten — Ideen für unsere Woche</span></h1>
     <p class="basis">🏡 Unser Quartier: <b>Country house Dovje</b>, Dovje 48 ·
@@ -447,6 +447,25 @@
         <span class="knoepfe">
           <a class="navi" href="https://www.google.com/maps/search/?api=1&query=Abenteuerpark%20Bled" target="_blank" rel="noopener noreferrer">📍 Karte</a>
           <a class="web" href="https://pustolovski-park-bled.si/" target="_blank" rel="noopener noreferrer">Website ↗</a>
+        </span>
+      </div>
+    </div>
+  </article>
+  <article class="karte" data-tags="kinder tag">
+    <div class="bild"><div class="ph">🌊</div><span class="em">🌊</span></div>
+    <div class="inhalt">
+      <div class="kopf">
+        <h3>Familien-Canyoning</h3>
+        <div class="meta"><span>📍 Jerečica / Grmečica bei Bled</span><span>🚗 ca. 35 Min</span><span>💶 ca. 70 € p. P.</span></div>
+      </div>
+      
+      <p class="text">Geführt durch eine Schlucht: abseilen, rutschen, springen, schwimmen. Die Familientouren dauern 1½–4 Std, Neopren und Ausrüstung stellt der Anbieter.</p>
+      <p class="info">⚠ <b>Mindestgrößen beachten:</b> Jerečica ab <b>120 cm</b>, Grmečica ab 130 cm, Jereka ab etwa 7 Jahren. Für die Große also machbar, <b>für Jannis nicht</b>. Schwimmen können ist Pflicht — Grenzen je Anbieter vorher erfragen.</p>
+      <div class="fuss">
+        <div class="chips"><span class="chip c-kinder">Kinder</span><span class="chip c-tag">Tagesausflug</span></div>
+        <span class="knoepfe">
+          <a class="navi" href="https://www.google.com/maps/search/?api=1&query=Familien-Canyoning%2C%20Jere%C4%8Dica" target="_blank" rel="noopener noreferrer">📍 Karte</a>
+          <a class="web" href="https://www.julijana.info/de/aktivitaten/canyoning-kranjska-gora/" target="_blank" rel="noopener noreferrer">Website ↗</a>
         </span>
       </div>
     </div>
@@ -851,8 +870,8 @@
     jederzeit über <b>📍 Karte</b>.
   </div>
 
-  <div class="neu"><b>Was ist neu</b><ul><li><b>v1.3</b> Abenteuerpark Bled und Zipline Bohinj · mehr Fotos bei den Wanderungen</li><li><b>v1.2</b> Wanderungen mit Länge, Höhenmetern und Gehzeit</li><li><b>v1.1</b> Restaurants mit Google-Bewertung · Wanderungen mit Schwierigkeitsstufe (leicht bis anspruchsvoll)</li><li><b>v1.0</b> Erste Fassung: Ausflugsziele mit Filtern, Fotos, Gehzeiten und Karte-Knopf</li></ul></div>
-  <div class="version"><span>Stand 09.08.2026 13:21</span><span>32 Ziele</span></div>
+  <div class="neu"><b>Was ist neu</b><ul><li><b>v1.5</b> Familien-Canyoning bei Bled (mit Mindestgrößen)</li><li><b>v1.4</b> iPhone: Bilder nicht mehr gequetscht, Texte größer und lesbar</li><li><b>v1.3</b> Abenteuerpark Bled und Zipline Bohinj · mehr Fotos bei den Wanderungen</li><li><b>v1.2</b> Wanderungen mit Länge, Höhenmetern und Gehzeit</li><li><b>v1.1</b> Restaurants mit Google-Bewertung · Wanderungen mit Schwierigkeitsstufe (leicht bis anspruchsvoll)</li><li><b>v1.0</b> Erste Fassung: Ausflugsziele mit Filtern, Fotos, Gehzeiten und Karte-Knopf</li></ul></div>
+  <div class="version"><span>Stand 09.08.2026 13:28</span><span>33 Ziele</span></div>
 </div>
 <script>
 const grid=document.getElementById('grid');
